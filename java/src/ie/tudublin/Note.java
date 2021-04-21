@@ -1,24 +1,11 @@
 package ie.tudublin;
 
 public class Note {
-    private int note;
-    private char duration;
-
-    public int getNote() {
-        return note;
-    }
-    public void setNote(int note) {
-        this.note = note;
-    }
-    public char getDuration() {
-        return duration;
-    }
-    public void setDuration(char duration) {
-        this.duration = duration;
-    }
+   private char note;
+   private int duration;
 
     //constructor
-    public Note(int note, char duration)
+    public Note(char note, int duration)
     {
         this.note = note;
         this.duration = duration;
