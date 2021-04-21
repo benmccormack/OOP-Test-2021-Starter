@@ -9,9 +9,9 @@ public class ScoreDisplay extends PApplet{
 	//array list for holding instances of the note class
 	ArrayList<Note> notes = new ArrayList<Note>();
 
-	//String score = "DEFGABcd";
+	String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
-	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 	
 	public void settings()
 	{
@@ -40,7 +40,6 @@ public class ScoreDisplay extends PApplet{
 				duration = 1;
 			}
 
-
 			Note n = new Note(note,duration);
 			notes.add(n);
 		}
@@ -63,16 +62,18 @@ public class ScoreDisplay extends PApplet{
 		
 	}
 
+		
 	public void drawLines()
 	{
 		float lineMax = height / 3;
 		float lineMin = height - lineMax;
+		float topBorder = height * 0.2f;
 		float border = width * 0.1f;
 		fill(0);
 		stroke(0);
 		for(int i = 0; i < 5; i ++)
 		{
-			float y = map(i,1,5,lineMax,lineMin);
+			float y = map(i,0,5,lineMin,lineMax);
 			line(border,y,width-border, y);
 		}
 	}
@@ -81,17 +82,84 @@ public class ScoreDisplay extends PApplet{
 	{
 		loadScore();
 		printScores();
-		
 	}
 
 	public void draw()
 	{
 		background(255);
 		drawLines();
+		drawNotes();
 		
 	}
 
 	void drawNotes()
-	{
+	{		
+		float lineMax = height / 3;
+		float lineMin = height - lineMax;
+		float border = width * 0.1f;
+
+		float diameter = 25;
+		float radius = diameter/2;
+
+		int i = 0;
+		fill(0);
+		strokeWeight(2);
+		for(Note n : notes)
+		{
+			float x = PApplet.map(i,0,notes.size(),border, width-border);
+			text(n.getNote(), x, border);
+			//total available space on the y-axis is lineMin - lineMax
+			float space = lineMin - lineMax;
+			//finding the height of each line
+			float line = space/5  + radius;
+			float y = 0;
+
+			switch(n.getNote()){
+				case 'D' :
+					y = lineMin + line/3;
+					break;
+				
+				case 'E' :
+					y = (lineMin - line/3) + radius;
+					break;
+
+				case 'F' :
+					y = (lineMin - (2*line)/3) + radius;
+					break;
+
+				case 'G' :
+					y = (lineMin - (3*line)/3) + radius;
+					break;
+
+				case 'A' :
+					y = (lineMin - (4*line)/3) + radius;
+					break;
+
+				case 'B' :
+					y = (lineMin - (5*line)/3) + radius;
+					break;
+
+				case 'c' :
+					y = (lineMin - (6*line)/3) + radius;
+					break;
+
+				case 'd' :
+					y = (lineMin - (7*line)/3) + radius;
+					break;
+				}
+
+			line(x + radius, y, x + radius, y - line);
+			ellipse(x,y,diameter,diameter);
+
+			if(n.getDuration() == 1)
+			{
+				line(x + radius, y-line, x + (2 * radius), y - (line * 0.90f));
+			}
+			
+			
+
+			i = i + 1;
+		}
+		
 	}
 }
