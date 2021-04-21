@@ -48,10 +48,19 @@ public class ScoreDisplay extends PApplet{
 
 	public void printScores()
 	{
+		String type;
 		for(Note n : notes)
 		{
-			println(n);
+			if(n.getDuration() == 2)
+			{
+				type = "Crotchet";
+			}
+			else{
+				type = "Quaver";
+			}
+			System.out.println(n.getNote() + "   " + n.getDuration() + "   " + type);
 		}
+		
 	}
 
 	public void setup() 
