@@ -52,7 +52,7 @@ public class ScoreDisplay extends PApplet{
 			else{
 				type = "Quaver";
 			}
-			System.out.println(n.getNote() + "   " + n.getDuration() + "   " + type);
+			System.out.println(n.getNote() + "\t" + n.getDuration() + "" + type);
 		}
 		
 	}
@@ -97,7 +97,7 @@ public class ScoreDisplay extends PApplet{
 		float line = space /4;
 
 		//for notes
-		float diameter = line * 0.8f;
+		float diameter = line * 0.7f;
 		float radius = diameter/2;
 
 
