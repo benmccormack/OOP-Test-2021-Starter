@@ -15,4 +15,5 @@ public class Note {
     public String toString() {
         return "Note [duration=" + duration + ", note=" + note + "]";
     }
+
 }

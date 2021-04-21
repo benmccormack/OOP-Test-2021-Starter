@@ -30,9 +30,10 @@ public class ScoreDisplay extends PApplet{
 		for(int i=0; i<length; i++)
 		{
 			char note = score.charAt(i);
-			if(Character.isDigit(score.charAt(i+1)) == true)
+			if(i < length - 1 && Character.isDigit(score.charAt(i+1)) == true)
 			{
 				duration = 2;
+				//i = i + 1;
 			}
 			else {
 				duration = 1;
@@ -44,8 +45,18 @@ public class ScoreDisplay extends PApplet{
 		}
 	}
 
+	public void printScores()
+	{
+		for(Note n : notes)
+		{
+			println(n);
+		}
+	}
+
 	public void setup() 
 	{
+		loadScore();
+		printScores();
 		
 	}
 
