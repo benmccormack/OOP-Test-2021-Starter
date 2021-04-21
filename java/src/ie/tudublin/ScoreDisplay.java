@@ -9,18 +9,13 @@ public class ScoreDisplay extends PApplet{
 	//array list for holding instances of the note class
 	ArrayList<Note> notes = new ArrayList<Note>();
 
-	String score = "DEFGABcd";
+	//String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
-	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 	
 	public void settings()
 	{
 		size(1000, 500);
-
-		// How to convert a character to a number
-		char c = '7'; // c holds the character 7 (55)
-		int i = c - '0'; // i holds the number 7 (55 - 48) 
-		println(i);
 	}
 
 	public void loadScore(){
@@ -67,7 +62,6 @@ public class ScoreDisplay extends PApplet{
 	{
 		float lineMax = height / 3;
 		float lineMin = height - lineMax;
-		float topBorder = height * 0.2f;
 		float border = width * 0.1f;
 		fill(0);
 		stroke(0);
@@ -98,8 +92,16 @@ public class ScoreDisplay extends PApplet{
 		float lineMin = height - lineMax;
 		float border = width * 0.1f;
 
-		float diameter = 25;
+		//total available space on the y-axis is lineMin - lineMax
+		float space = lineMin - lineMax;
+
+		//finding height of each line
+		float line = space/4;
+
+		//for notes
+		float diameter = line /2;
 		float radius = diameter/2;
+
 
 		int i = 0;
 		fill(0);
@@ -108,10 +110,8 @@ public class ScoreDisplay extends PApplet{
 		{
 			float x = PApplet.map(i,0,notes.size(),border, width-border);
 			text(n.getNote(), x, border);
-			//total available space on the y-axis is lineMin - lineMax
-			float space = lineMin - lineMax;
-			//finding the height of each line
-			float line = space/5  + radius;
+
+			//changing value for y axis
 			float y = 0;
 
 			switch(n.getNote()){
@@ -120,31 +120,31 @@ public class ScoreDisplay extends PApplet{
 					break;
 				
 				case 'E' :
-					y = (lineMin - line/3) + radius;
+					y = (lineMin - line/3);
 					break;
 
 				case 'F' :
-					y = (lineMin - (2*line)/3) + radius;
+					y = (lineMin - (2*line)/3);
 					break;
 
 				case 'G' :
-					y = (lineMin - (3*line)/3) + radius;
+					y = (lineMin - (3*line)/3);
 					break;
 
 				case 'A' :
-					y = (lineMin - (4*line)/3) + radius;
+					y = (lineMin - (4*line)/3);
 					break;
 
 				case 'B' :
-					y = (lineMin - (5*line)/3) + radius;
+					y = (lineMin - (5*line)/3);
 					break;
 
 				case 'c' :
-					y = (lineMin - (6*line)/3) + radius;
+					y = (lineMin - (6*line)/3);
 					break;
 
 				case 'd' :
-					y = (lineMin - (7*line)/3) + radius;
+					y = (lineMin - (7*line)/3);
 					break;
 				}
 
@@ -156,8 +156,6 @@ public class ScoreDisplay extends PApplet{
 				line(x + radius, y-line, x + (2 * radius), y - (line * 0.90f));
 			}
 			
-			
-
 			i = i + 1;
 		}
 		
