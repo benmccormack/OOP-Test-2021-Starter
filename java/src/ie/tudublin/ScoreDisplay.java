@@ -9,9 +9,9 @@ public class ScoreDisplay extends PApplet{
 	//array list for holding instances of the note class
 	ArrayList<Note> notes = new ArrayList<Note>();
 
-	String score = "DEFGABcd";
+	//String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
-	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 	
 	public void settings()
 	{
@@ -33,7 +33,7 @@ public class ScoreDisplay extends PApplet{
 			if(i < length - 1 && Character.isDigit(score.charAt(i+1)) == true)
 			{
 				duration = 2;
-				//i = i + 1;
+				i = i + 1; //this will skip the number in the index
 			}
 			else {
 				duration = 1;
