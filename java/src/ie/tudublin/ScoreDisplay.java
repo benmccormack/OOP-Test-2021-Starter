@@ -63,6 +63,20 @@ public class ScoreDisplay extends PApplet{
 		
 	}
 
+	public void drawLines()
+	{
+		float lineMax = height / 3;
+		float lineMin = height - lineMax;
+		float border = width * 0.1f;
+		fill(0);
+		stroke(0);
+		for(int i = 0; i < 5; i ++)
+		{
+			float y = map(i,1,5,lineMax,lineMin);
+			line(border,y,width-border, y);
+		}
+	}
+
 	public void setup() 
 	{
 		loadScore();
@@ -73,6 +87,7 @@ public class ScoreDisplay extends PApplet{
 	public void draw()
 	{
 		background(255);
+		drawLines();
 		
 	}
 
