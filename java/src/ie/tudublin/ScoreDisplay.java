@@ -118,31 +118,31 @@ public class ScoreDisplay extends PApplet{
 					break;
 				
 				case 'E' :
-					y = (lineMin - line/3);
+					y = (lineMin - (line/3));
 					break;
 
 				case 'F' :
-					y = (lineMin - (2*line)/3);
+					y = (lineMin - 2 * (line/3));
 					break;
 
 				case 'G' :
-					y = (lineMin - (3*line)/3);
+					y = (lineMin - 3*(line/3));
 					break;
 
 				case 'A' :
-					y = (lineMin - (4*line)/3);
+					y = (lineMin - 4*(line/3));
 					break;
 
 				case 'B' :
-					y = (lineMin - (5*line)/3);
+					y = (lineMin - 5*(line/3));
 					break;
 
 				case 'c' :
-					y = (lineMin - (6*line)/3);
+					y = (lineMin - 6*(line/3));
 					break;
 
 				case 'd' :
-					y = (lineMin - (7*line)/3);
+					y = (lineMin - 7*(line/3));
 					break;
 				}
 
