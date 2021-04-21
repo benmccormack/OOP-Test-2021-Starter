@@ -52,7 +52,7 @@ public class ScoreDisplay extends PApplet{
 			else{
 				type = "Quaver";
 			}
-			System.out.println(n.getNote() + "\t" + n.getDuration() + "" + type);
+			System.out.println(n.getNote() + "\t" + n.getDuration() + "\t" + type);
 		}
 		
 	}
