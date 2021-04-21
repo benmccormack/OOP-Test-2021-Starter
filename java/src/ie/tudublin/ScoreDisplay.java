@@ -9,9 +9,9 @@ public class ScoreDisplay extends PApplet{
 	//array list for holding instances of the note class
 	ArrayList<Note> notes = new ArrayList<Note>();
 
-	//String score = "DEFGABcd";
+	String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
-	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 	
 	public void settings()
 	{
@@ -94,12 +94,10 @@ public class ScoreDisplay extends PApplet{
 
 		//total available space on the y-axis is lineMin - lineMax
 		float space = lineMin - lineMax;
-
-		//finding height of each line
-		float line = space/4;
+		float line = space /4;
 
 		//for notes
-		float diameter = line /2;
+		float diameter = line * 0.8f;
 		float radius = diameter/2;
 
 
