@@ -17,6 +17,13 @@ public class Note {
         this.duration = duration;
     }
 
+    //constructor
+    public Note(int note, char duration)
+    {
+        this.note = note;
+        this.duration = duration;
+    }
+
     @Override
     public String toString() {
         return "Note [duration=" + duration + ", note=" + note + "]";
