@@ -23,6 +23,27 @@ public class ScoreDisplay extends PApplet{
 		println(i);
 	}
 
+	public void loadScore(){
+		//populating the array list with contents of the string score
+		int length = score.length();
+		int duration;
+		for(int i=0; i<length; i++)
+		{
+			char note = score.charAt(i);
+			if(Character.isDigit(score.charAt(i+1)) == true)
+			{
+				duration = 2;
+			}
+			else {
+				duration = 1;
+			}
+
+
+			Note n = new Note(note,duration);
+			notes.add(n);
+		}
+	}
+
 	public void setup() 
 	{
 		
