@@ -30,10 +30,11 @@ public class ScoreDisplay extends PApplet{
 		for(int i=0; i<length; i++)
 		{
 			char note = score.charAt(i);
+			//length - 1 to keep the array in bounds
 			if(i < length - 1 && Character.isDigit(score.charAt(i+1)) == true)
 			{
 				duration = 2;
-				i = i + 1; //this will skip the number in the index
+				i = i + 1; //this will skip the number that follows the note
 			}
 			else {
 				duration = 1;
